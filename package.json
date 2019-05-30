@@ -1,0 +1,23 @@
+{
+  "name": "citaPrevia",
+  "version": "1.0.0",
+  "description": "cita previa automation",
+  "main": "main.js",
+  "author": "Yaronke",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chromedriver": "^74.0.0",
+    "cucumber": "^5.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "webdriverio": "^5.8.5"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "type": "module",
+    "test": "cucumber-js features/citaPrevia.feature"
+  }
+}
