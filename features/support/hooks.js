@@ -10,17 +10,6 @@ BeforeAll(function() {
   sleep(config.sleepTimeToOpenWindow);
 });
 
-// After(function(scenario) {
-//   if (scenario.result.status === Status.FAILED) {
-//     let world = this;
-//     return WebDriver.takeScreenshot().then(function(screenShot, error) {
-//       if (!error) {
-//         world.attach(screenShot, "image/png");
-//       }
-//     });
-//   }
-// });
-
 AfterAll(function() {
   driver.quit();
 });

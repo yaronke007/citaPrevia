@@ -10,17 +10,17 @@ const { info } = require("../support/utils");
 Given("the user opens the browser and looks for {string}", async function(
   searchPage
 ) {
-  openUrl(searchPage);
+  await openUrl(searchPage);
 });
 
 When("the user searchs {string}", async function(keySearch) {
-  searchBar(keySearch);
+  await searchBar(keySearch);
 });
 
 Given("the user clicks on the desired link", async function() {
-  myPage();
+  await myPage();
 });
 
 Then("the desired page is open", async function() {
-  resultPage();
+  await resultPage();
 });
