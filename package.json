@@ -18,6 +18,8 @@
   },
   "scripts": {
     "type": "module",
-    "test": "cucumber-js features/citaPrevia.feature"
+    "test": "cucumber-js features/*.feature",
+    "openPage": "cucumber-js features/openPage.feature",
+    "logInPage": "cucumber-js features/logIn.feature"
   }
 }
