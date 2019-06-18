@@ -1,15 +1,18 @@
-const { BeforeAll, AfterAll, setDefaultTimeout, After } = require("cucumber");
-const { Builder, quit } = require("selenium-webdriver");
-const { config } = require("../../config");
-const { sleep } = require("../support/utils");
+import { Before, AfterAll, setDefaultTimeout, After } from "cucumber";
+import { config } from "../../config";
+import "chromedriver";
+import { driver } from "./world";
+import { sleep } from "../support/utils";
 
 setDefaultTimeout(config.timeout);
 
-BeforeAll(function() {
-  driver = new Builder().forBrowser("chrome").build();
-  sleep(config.sleepTimeToOpenWindow);
+Before(async function() {
+  await this.driver
+    .manage()
+    .window()
+    .maximize();
 });
 
-AfterAll(function() {
-  driver.quit();
-});
+// After(function() {
+//   this.driver.quit();
+// });
