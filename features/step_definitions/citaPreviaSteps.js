@@ -1,10 +1,6 @@
-const { assert } = require("chai");
-require("chromedriver");
-const { Given, When, Then, And } = require("cucumber");
-// const { openUrl } = require("../../main");
-const { By, Key, until } = require("selenium-webdriver");
-// const { click } = require("webdriverio");
-const {
+import "chromedriver";
+import { Given, When, Then } from "cucumber";
+import {
   openUrl,
   searchBar,
   myPage,
@@ -12,37 +8,38 @@ const {
   logInPage,
   logInSuccessful,
   profilePage
-} = require("../../main");
+} from "../../main";
 
-Given("the user opens the browser and looks for {string}", async function(
-  searchPage
-) {
-  await openUrl(searchPage);
-});
+Given(
+  "the user opens the browser and looks for the search page",
+  async function() {
+    await openUrl(this.driver);
+  }
+);
 
 When("the user searchs {string}", async function(keySearch) {
-  await searchBar(keySearch);
+  await searchBar(keySearch, this.driver);
 });
 
 Given("the user clicks on the desired link", async function() {
-  await myPage();
+  await myPage(this.driver);
 });
 
 Then("the desired page is open", async function() {
-  await resultPage();
+  await resultPage(this.driver);
 });
 
 Given("the user go to the login page", async function() {
-  await logInPage();
+  await logInPage(this.driver);
 });
 
 Given(
   "the user enter login name {string} and password {string}",
   async function(email, password) {
-    await logInSuccessful(email, password);
+    await logInSuccessful(email, password, this.driver);
   }
 );
 
 Then("the user is logged in to his profile", async function() {
-  await profilePage();
+  await profilePage(this.driver);
 });

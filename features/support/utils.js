@@ -4,4 +4,4 @@
 
 const sleep = time => new Promise(r => setTimeout(r, time));
 
-module.exports = { sleep };
+export default { sleep };
